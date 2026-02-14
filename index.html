@@ -1,36 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Will you be my Valentine? 💕</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div class="hearts-bg"></div>
+const noBtn = document.getElementById("no-btn")
 
-    <div class="container">
-        <h1>Will you be my Valentine? 💕</h1>
+let noClickCount = 0
+let runawayEnabled = false
 
-        <div class="image-container">
-            <!-- Starting image -->
-            <img id="main-image" src="images/img1.jpeg" alt="valentine image">
-        </div>
+function handleYesClick() {
+    alert("Yay! 💕")
+}
 
-        <div class="buttons">
-            <button id="yes-btn" onclick="handleYesClick()">Yes</button>
-            <button id="no-btn" onclick="handleNoClick()">No</button>
-        </div>
-    </div>
+function handleNoClick() {
+    noClickCount++
 
-    <audio id="bg-music" loop>
-        <source src="music/song.mp3" type="audio/mpeg">
-    </audio>
+    if (noClickCount >= 4 && !runawayEnabled) {
+        enableRunaway()
+        runawayEnabled = true
+    }
+}
 
-    <button id="music-toggle" onclick="toggleMusic()" title="Toggle music">🔊</button>
+function enableRunaway() {
+    noBtn.addEventListener("mouseover", runAway)
+    noBtn.addEventListener("touchstart", runAway, { passive: true })
+}
 
-    <script src="script.js"></script>
-</body>
-</html>
+function runAway() {
+    const margin = 20
+    const btnW = noBtn.offsetWidth
+    const btnH = noBtn.offsetHeight
+    const maxX = window.innerWidth - btnW - margin
+    const maxY = window.innerHeight - btnH - margin
+
+    const randomX = Math.random() * maxX
+    const randomY = Math.random() * maxY
+
+    noBtn.style.position = "fixed"
+    noBtn.style.left = `${randomX}px`
+    noBtn.style.top = `${randomY}px`
+}
