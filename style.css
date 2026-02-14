@@ -21,7 +21,10 @@ body {
 /* Floating hearts background */
 .hearts-bg {
     position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     pointer-events: none;
     z-index: 0;
     overflow: hidden;
@@ -71,20 +74,23 @@ h1 {
     50% { transform: rotate(1deg); }
 }
 
-.gif-container {
+/* Image Section */
+.image-container {
     margin: 20px auto;
     display: flex;
     justify-content: center;
 }
 
-#cat-gif {
-    width: 200px;
-    height: 200px;
+#main-image {
+    width: 220px;
+    height: 220px;
     object-fit: contain;
-    filter: drop-shadow(0 8px 16px rgba(0,0,0,0.15));
-    transition: opacity 0.3s ease;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
+/* Buttons */
 .buttons {
     display: flex;
     gap: 20px;
@@ -136,25 +142,7 @@ h1 {
     background: linear-gradient(135deg, #c0392b, #a93226);
 }
 
-
-#tease-toast {
-    margin-top: 14px;
-    font-size: 1rem;
-    color: #d63384;
-    font-weight: 700;
-    font-style: italic;
-    opacity: 0;
-    transform: translateY(6px);
-    transition: opacity 0.3s ease, transform 0.3s ease;
-    min-height: 1.5rem;
-}
-
-#tease-toast.show {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Music toggle button */
+/* Music Toggle */
 #music-toggle {
     position: fixed;
     bottom: 20px;
@@ -176,7 +164,7 @@ h1 {
     transform: scale(1.1);
 }
 
-/* Yes page specific */
+/* YES PAGE STYLING */
 .yes-container h1.yes-title {
     font-size: 2.8rem;
     animation: bounceTitle 0.6s ease infinite alternate;
@@ -198,41 +186,4 @@ h1 {
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
-}
-
-.yes-container #cat-gif {
-    width: 260px;
-    height: 260px;
-
-}
-
-/* Image container supports both single GIF and collage */
-#image-container {
-    display: grid;
-    grid-template-columns: repeat(2, 140px);
-    justify-content: center;
-    gap: 12px;
-    transition: all 0.3s ease;
-}
-
-/* Collage images styling */
-.collage-img {
-    width: 140px;
-    height: 140px;
-    object-fit: cover;
-    border-radius: 15px;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
-    animation: fadeInScale 0.4s ease forwards;
-}
-
-/* Smooth appearance animation */
-@keyframes fadeInScale {
-    from {
-        opacity: 0;
-        transform: scale(0.8);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
 }
