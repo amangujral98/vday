@@ -1,3 +1,9 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     font-family: Arial, sans-serif;
     background: #ffe4e8;
@@ -5,6 +11,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden; /* IMPORTANT for runaway */
 }
 
 .container {
@@ -19,6 +26,7 @@ h1 {
     display: flex;
     gap: 20px;
     justify-content: center;
+    position: relative; /* IMPORTANT */
 }
 
 button {
@@ -27,6 +35,8 @@ button {
     cursor: pointer;
     border: none;
     border-radius: 10px;
+    position: relative;
+    transition: left 0.2s ease, top 0.2s ease;
 }
 
 #yes-btn {
