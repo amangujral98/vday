@@ -1,10 +1,10 @@
 const imageContainer = document.getElementById("image-container")
 
 const collageImages = [
-  "images/img1.jpg",
-  "images/img2.jpg",
-  "images/img3.jpg",
-  "images/img4.jpg"
+  "images/img1.jpeg",
+  "images/img2.jpeg",
+  "images/img3.jpeg",
+  "images/img4.jpeg"
 ]
 
 let collageShown = false
@@ -169,3 +169,4 @@ function showCollage() {
         })
     }, 200)
 }
+
