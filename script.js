@@ -50,16 +50,13 @@ const noBtn = document.getElementById('no-btn')
 const music = document.getElementById('bg-music')
 
 // Autoplay workaround
-music.muted = true
 music.volume = 0.3
-music.play().then(() => {
-    music.muted = false
-}).catch(() => {
-    document.addEventListener('click', () => {
-        music.muted = false
+
+document.addEventListener("click", () => {
+    if (music.paused) {
         music.play().catch(() => {})
-    }, { once: true })
-})
+    }
+}, { once: true })
 
 function toggleMusic() {
     if (musicPlaying) {
@@ -169,4 +166,5 @@ function showCollage() {
         })
     }, 200)
 }
+
 
