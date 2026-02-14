@@ -203,4 +203,36 @@ h1 {
 .yes-container #cat-gif {
     width: 260px;
     height: 260px;
+
+}
+
+/* Image container supports both single GIF and collage */
+#image-container {
+    display: grid;
+    grid-template-columns: repeat(2, 140px);
+    justify-content: center;
+    gap: 12px;
+    transition: all 0.3s ease;
+}
+
+/* Collage images styling */
+.collage-img {
+    width: 140px;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+    animation: fadeInScale 0.4s ease forwards;
+}
+
+/* Smooth appearance animation */
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
